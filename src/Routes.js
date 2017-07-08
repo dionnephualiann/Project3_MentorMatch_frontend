@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import {EventPage}from './components/events/eventPage';
+import EventPage from './components/events/eventPage';
 import {Switch, Route} from 'react-router-dom';
 
 
