@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import initStore from './Store';
+import { Provider } from 'react-redux';
 import {HashRouter, Link} from 'react-router-dom';
 
-import { Button, Navbar, NavItem, Nav } from 'react-bootstrap';
+import { Button, Navbar, NavItem, Nav, Grid } from 'react-bootstrap';
 import Main from './Routes';
 
 import navbarInstance from './components/navBar/navBar';
@@ -12,6 +13,7 @@ import navbarInstance from './components/navBar/navBar';
 class App extends Component {
   render() {
     return (
+      <Provider store={initStore()}>
       <div className="App">
         <div className="App-header">
 
@@ -34,10 +36,13 @@ class App extends Component {
           </Navbar>
 
         </div>
+        <Grid>
         <Main>
           To get started, edit <code>src/App.js</code> and save to reload.
         </Main>
+        </Grid>
       </div>
+      </Provider>
     );
   }
 }

@@ -1,13 +1,19 @@
 // event page contains all Lists, Body and Post
 import React, {PropTypes} from 'react';
-// import EventPost from "./eventPost";
-// import EventList from "./eventlist";
+import EventPost from "./eventPost";
+import EventList from "./eventsList";
+import {connect} from 'react-redux';
 
 
-export const EventPage = (props) => (
+const EventPage = (props) => (
 <div>
-hello
-  {/*<EventPost />
-  // <EventList />*/}
+  <EventPost />
+  <EventList events={props.events || []}/>
 </div>
 );
+
+const mapStateToProps = (state) => {
+    return state;
+}
+
+export default connect(mapStateToProps)(EventPage);
