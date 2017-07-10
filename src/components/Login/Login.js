@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, FormGroup, InputGroup, ControlLabel, FormControl, Glyphicon, Row, Col, Form, Checkbox } from 'react-bootstrap';
 import './Login.css'
 
-
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
 
@@ -12,6 +12,11 @@ export default class Login extends Component {
       email: '',
       password:''
     }
+  }
+  static propTypes = {
+    match: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
   }
 
   onChange = (e) => {
@@ -35,11 +40,16 @@ export default class Login extends Component {
     // });
   }
 
-//   handleClick = () => {
-//     <Route path = '/SignUp' component = {SignUp}/>;
-// }
+  handleClick = (e) => {
+    this.props.history.push('/signup')
+  }
+
+  // Login.contextTypes = {
+  //   router: PropTypes.object.isRequired
+  // }
 
   render() {
+    const { match, location, history } = this.props
     return (<div>
 
       <Row className="show-grid">
@@ -87,10 +97,10 @@ export default class Login extends Component {
           <Col md={6} mdPush={6}>
                   <FormGroup>
                       <Col smOffset={2} sm={10}>
-                        <Button type="submit"
-                        onClick={this.handleClick}>
-                          Sign up
-                        </Button>
+                      <Button type="submit"
+                      onClick={this.handleClick}>
+                         Sign up
+                      </Button>
                       </Col>
                     </FormGroup>
           </Col>
@@ -115,3 +125,5 @@ export default class Login extends Component {
 
   }
 }
+
+export default withRouter(Login)

@@ -48,7 +48,8 @@ export default class SignUp extends Component {
           <p>Skills:</p>
             <FormControl
             id="formControlsText"
-            type="skills"
+            componentClass="textarea"
+            style= {{ height: 200}}
             name="skills"
             placeholder="List Your Skills"
             onChange={this.onChange}/>
@@ -102,7 +103,8 @@ export default class SignUp extends Component {
             <p>Describe Yourself:</p>
               <FormControl
                 id="formControlsText"
-                type="describe"
+                componentClass="textarea"
+                style= {{ height: 200}}
                 name="describe"
                 placeholder="Describe Yourself"
                 onChange={this.onChange}/>
