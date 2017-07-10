@@ -27,7 +27,7 @@ class App extends Component {
             <Navbar.Collapse>
               <Nav pullRight>
                 <NavItem eventKey={1}><Link to='/events'>Events</Link></NavItem>
-                <NavItem eventKey={2} href="#">Profile</NavItem>
+                <NavItem eventKey={2}><Link to='/profile'>Profile</Link></NavItem>
                 <NavItem eventKey={3} href="#">Mentor</NavItem>
                 <NavItem eventKey={4} href="#">Mentee</NavItem>
                 <NavItem eventKey={5} href="#">Logout</NavItem>
