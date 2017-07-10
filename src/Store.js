@@ -1,6 +1,6 @@
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import io from "socket.io";
+//import io from "socket.io";
 
 //reducers
 import EventReducer from './components/events/Reducer/eventReducer';
