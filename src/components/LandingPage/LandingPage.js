@@ -1,14 +1,15 @@
-import React, {PropTypes} from 'react';
+import React, { Component, PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Button } from 'react-bootstrap'
 
-export default class MyComponent extends React.Component {
+class LandingPage extends React.Component {
   constructor(props) {
     super(props);
   }
   // This is a comment
   render() {
-    return (<div>MyComponent</div>);
+    return (<div>Learn from the Best in the industry</div>);
   }
 }
 
-.propTypes = {
-};
+export default LandingPage;
