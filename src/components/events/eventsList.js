@@ -2,6 +2,9 @@
 import React, {PropTypes} from 'react';
 import { Button, Row, Col} from 'react-bootstrap';
 import EventBody from './eventsBody';
+import { connect } from 'react-redux';
+import {fetchPosts} from './Action/eventsAction';
+
 
 // class version is required only if you need state. The only
 // time you need state is if there is a visual state that is not tied to a model.
@@ -11,20 +14,28 @@ import EventBody from './eventsBody';
 
 
 
-export const EventList = ({events}) => (
+export const EventList = ({events, fetchPosts}) => (
 
 <div>
+  <Button onClick={fetchPosts}></Button>
  {events.map( (eventBody, index) => {
    return (
      <EventBody key={index} {...eventBody} />
-     
-
    )
- }
-
+  }
 )}
 </div>
 );
 
+const mapStateToProps = (state) => {
+    return state;
+}
 
-export default EventList;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchPosts: () => { dispatch(fetchPosts()); },
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(EventList);
