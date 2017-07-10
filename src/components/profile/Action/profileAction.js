@@ -3,7 +3,7 @@ import axios from 'axios';
 export const fetchProfile = (id) => {
     //need to return another function
     return (dispatch) => {
-      axios.get('/api/profile/' + id)
+      axios.get('http://localhost:3001/api/profile/' + id)
       .then( (response) => {
         console.log("Get Profile", response);
         return dispatch({

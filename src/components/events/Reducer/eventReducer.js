@@ -4,13 +4,18 @@ const events = (state=[], action) => {
       return [
         ...state,
         {
-          text: action.text,
-          date: new Date(),
+          text: action.post.text,
+          date: action.post.date,
         }
       ]
 
       break;
+      case 'FULFILL_GET_POSTS':
+        return [
+          ...action.posts
+        ]
 
+        break;
     default:
       return state;
 

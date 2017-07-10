@@ -18,10 +18,10 @@ const EventBody = (props) => (
       </Row>
       <Row>
         <Col md={1} className="Date">
-        {props.date.toLocaleDateString()}
+        {props.date && new Date(props.date).toLocaleDateString()}
         </Col>
         <Col md={2} className="pull-right Time">
-        {props.date.toLocaleTimeString()}
+        {props.date && new Date(props.date).toLocaleTimeString()}
         </Col>
       </Row>
 
