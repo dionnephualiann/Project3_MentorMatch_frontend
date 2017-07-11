@@ -7,7 +7,7 @@ export const fetchProfile = (id) => {
       .then( (response) => {
         console.log("Get Profile", response);
         return dispatch({
-          type: "FULFILL_PROFILE",
+          type: "FULFILL_GET_PROFILE",
           profile: response.data
         })
       })
