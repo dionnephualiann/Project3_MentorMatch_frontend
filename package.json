@@ -2,6 +2,7 @@
   "name": "project3-mentor-match",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "axios": "^0.16.2",
     "is-promise": "^2.1.0",

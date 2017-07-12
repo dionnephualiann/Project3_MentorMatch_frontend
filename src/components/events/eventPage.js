@@ -3,6 +3,7 @@ import React, {PropTypes} from 'react';
 import EventPost from "./eventPost";
 import EventList from "./eventsList";
 import {connect} from 'react-redux';
+import {Authenticated} from '../auth/auth';
 
 import './eventPage.css';
 
@@ -20,4 +21,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps)(EventPage);
+export default connect(mapStateToProps)(Authenticated(EventPage));

@@ -5,6 +5,7 @@ import io from "socket.io";
 //reducers
 import EventReducer from './components/events/Reducer/eventReducer';
 import ProfileReducer from './components/profile/Reducer/profileReducer';
+import AuthReducer from './components/auth/Reducer/authReducer';
 
 const defaultProfile = {
 url: "./images/profile.jpg",
@@ -18,10 +19,11 @@ export let initStore = () => {
 
   const reducer = combineReducers ({
     events: EventReducer,
-    profile: ProfileReducer
+    profile: ProfileReducer,
+    auth: AuthReducer
   });
 
-  const store = createStore( reducer, {events: [], profile: {profile: defaultProfile}}, compose(
+  const store = createStore( reducer, {events: [], profile: {profile: defaultProfile}, auth: {isAuthenticated: localStorage.getItem('isAuthenticated')}}, compose(
     // Let you make asynchronous event actions.
     applyMiddleware(thunk),
     window.devToolsExtension ? window.devToolsExtension() : f => f

@@ -1,8 +1,8 @@
 import React, {PropTypes, Component} from 'react';
 import { Button, Grid, Row, Col, Clearfix, Image, Well, Modal} from 'react-bootstrap';
 import {connect} from 'react-redux';
-
 import {fetchProfile} from './Action/profileAction'
+import {Authenticated} from '../auth/auth';
 
 import './profile.css'
 
@@ -118,4 +118,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile);
+export default connect(mapStateToProps, mapDispatchToProps)(Authenticated(Profile));
