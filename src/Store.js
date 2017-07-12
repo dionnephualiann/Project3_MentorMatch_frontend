@@ -5,6 +5,7 @@ import io from "socket.io";
 //reducers
 import EventReducer from './components/events/Reducer/eventReducer';
 import ProfileReducer from './components/profile/Reducer/profileReducer';
+import MentorLandingPageReducer from '../reducer/MentorLandingPageReducer.js'
 
 const defaultProfile = {
 url: "./images/profile.jpg",

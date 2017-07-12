@@ -13,6 +13,29 @@ class Login extends Component {
       password:''
     }
   }
+  localLogin = (e) => {
+    e.preventDefault();
+    axios.post('/auth/login', this.state)
+      .then( (response) => {
+        let data = response.data;
+        if(data.error){
+          console.log(data.message)
+          this.setState({
+            error:data.message
+          });
+        }else{
+          console.error("AJAX: Logged in @ '/auth/user'");
+          window.location.href = "/SignUp";
+        }
+      })
+      .catch((error)=> {
+        console.error("AJAX: Could not login @ '/auth/login'")
+        this.setState({
+          error:"Notify the dev team!"
+        });
+      });
+  }
+
   static propTypes = {
     match: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,

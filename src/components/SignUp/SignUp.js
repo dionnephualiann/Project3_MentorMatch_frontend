@@ -18,6 +18,29 @@ export class SignUp extends Component {
       skillSet: ''
     }
   }
+  localSignup = (e) => {
+    e.preventDefault();
+    axios.post('/auth/signup', this.state)
+      .then( (response) => {
+
+        let data = response.data;
+        if(data.error){
+          console.log(data.message)
+          this.setState({
+            error:data.message
+          });
+        }else{
+          console.log("AJAX: Signed up @ '/auth/signup'");
+          window.location.href = "/";
+        }
+      })
+      .catch((error)=> {
+        console.error("AJAX: Could not signup @ '/auth/signup'",error)
+        this.setState({
+          error:"Notify the dev team!"
+        });
+      });
+  }
 
   onChange = (e) => {
     let state = this.state
@@ -33,6 +56,12 @@ export class SignUp extends Component {
 
     this.props.profile(this.state, this.props.history);
 
+
+    console.log(this.state.name,
+                this.state.password,
+                this.state.title,
+                this.state.describe,
+                this.state.skills)
   }
 
 
