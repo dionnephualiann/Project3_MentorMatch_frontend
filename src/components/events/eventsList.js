@@ -5,6 +5,7 @@ import EventBody from './eventsBody';
 import { connect } from 'react-redux';
 import {fetchPosts} from './Action/eventsAction';
 
+// import './eventList.css';
 
 // class version is required only if you need state. The only
 // time you need state is if there is a visual state that is not tied to a model.

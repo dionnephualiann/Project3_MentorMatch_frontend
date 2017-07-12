@@ -1,5 +1,20 @@
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  width: 100%;
+  min-height: 100%;
+  background: linear-gradient(to bottom right,#002f4b, transparent ,white ,transparent), url("https://user-images.githubusercontent.com/22927048/28119944-25366dd4-6749-11e7-8c0f-bd6c6373db79.jpg") no-repeat center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+footer p {
+  margin-top: 150px;
+  margin-left: 50px;
+  margin-bottom: 50px;
+  position: fixed;
+  min-width: 55%;
+  color: rgba(99, 99, 99, 0.8);
 }

@@ -22,7 +22,7 @@ const Main = () => (
     <Route path = '/logout' component = {Logout}></Route>
 
 
-    <Route path = '/LandingPage' component = {LandingPage}></Route>
+    {/* <Route path = '/LandingPage' component = {LandingPage}></Route>*/}
   </Switch>
 
 
