@@ -4,6 +4,7 @@ import EventPage from './components/events/eventPage';
 import SignUp from './components/signUp/signUp';
 import Login from './components/Login/Login';
 import LandingPage from './components/LandingPage/LandingPage';
+import MentorLandingPage from './components/MentorLandingPage/MentorLandingPage';
 import {Switch, Route} from 'react-router-dom';
 import ProfilePage from './components/profile/profile';
 
@@ -21,6 +22,7 @@ const Main = () => (
 
 
     <Route path = '/LandingPage' component = {LandingPage}></Route>
+    <Route path = '/MentorLandingPage' component = {MentorLandingPage}></Route>
   </Switch>
 
 
