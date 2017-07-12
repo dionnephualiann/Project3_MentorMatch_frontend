@@ -23,9 +23,11 @@ export class SignUp extends Component {
     let state = this.state
     let field = e.target.name;
     let value = e.target.value;
-    state[field] = value
-    console.log(field, value)
-    this.setState(state)
+    // setState takes an object. the {} creates a new object.
+    // Field is the property that you are changing.
+    // if you put "field : value", js will think that are are assigning a key property of field.
+    //[field] will give you the value of field which is what you would want.
+    this.setState({...state, [field]: value})
     console.log('state', this.state)
   }
 
@@ -128,6 +130,9 @@ export class SignUp extends Component {
   }
 }
 
+
+// A higher order component is when you do a {connect}: a higher-order component is a function that takes a
+// component and returns a new component.
 const mapStateToProps = (state) => {
     return state;
 }

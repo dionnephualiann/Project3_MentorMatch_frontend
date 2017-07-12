@@ -4,16 +4,28 @@ import './App.css';
 import initStore from './Store';
 import { Provider } from 'react-redux';
 import {HashRouter, Link} from 'react-router-dom';
+import {logout} from './components/login/logoutAction';
+import {connect} from 'react-redux';
 
 import { Button, Navbar, NavItem, Nav, Grid } from 'react-bootstrap';
 import Main from './Routes';
 
 import navbarInstance from './components/navBar/navBar';
 
+
 class App extends Component {
+ constructor(props){
+   super(props);
+
+}
+
+  onClick = (e) => {
+    this.props.logout(this.props.history);
+  }
+
   render() {
     return (
-      <Provider store={initStore()}>
+
       <div className="App">
         <div className="App-header">
 
@@ -30,7 +42,7 @@ class App extends Component {
                 <NavItem eventKey={2}><Link to='/profile'>Profile</Link></NavItem>
                 <NavItem eventKey={3} href="#">Mentor</NavItem>
                 <NavItem eventKey={4} href="#">Mentee</NavItem>
-                <NavItem eventKey={5} href="#">Logout</NavItem>
+                <NavItem eventKey={5}><Link to='/logout'>Logout</Link></NavItem>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
@@ -42,9 +54,11 @@ class App extends Component {
         </Main>
         </Grid>
       </div>
-      </Provider>
+
     );
   }
 }
+
+
 
 export default App;

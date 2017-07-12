@@ -14,10 +14,10 @@ import {fetchPosts} from './Action/eventsAction';
 
 
 
-export const EventList = ({events, fetchPosts}) => (
+export const EventList = ({events, fetchPosts, history}) => (
 
 <div>
-  <Button onClick={fetchPosts}></Button>
+  <Button onClick={fetchPosts(history)}></Button>
  {events.map( (eventBody, index) => {
    return (
      <EventBody key={index} {...eventBody} />
@@ -33,7 +33,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPosts: () => { dispatch(fetchPosts()); },
+    fetchPosts: (history) => { dispatch(fetchPosts(history)); },
   }
 }
 

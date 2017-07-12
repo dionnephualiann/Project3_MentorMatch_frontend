@@ -18,11 +18,15 @@ export const createPost = (text) => {
 }
 
 
-export const fetchPosts = (text) => {
+export const fetchPosts = (text, history) => {
     //need to return another function
     return (dispatch) => {
       axios.get('http://localhost:3001/api/events/')
       .then( (response) => {
+        if(response.data.redirect){
+          history.push(response.data.redirect);
+          return;
+        }
         console.log("Get Post", response);
         return dispatch({
           type: "FULFILL_GET_POSTS",
