@@ -1,12 +1,15 @@
 import axios from 'axios';
+import * as AuthAction from '../auth/Action/authAction';
 
-// handling login only
+// handling logout only
 export const logout = (history) => {
     //need to return another function
     return (dispatch) => {
-      axios.get('http://localhost:3001/auth/logout/')
+      axios.get('/auth/logout/')
       .then( (response) => {
         console.log("Logout init", response);
+
+          dispatch (AuthAction.logout());
         // it's a function that redirects to the profile page.
         // the response contains the .id. Using the .id, it's going to redirect to the
         // profile route.
