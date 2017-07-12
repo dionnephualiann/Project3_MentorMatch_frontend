@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { Button, FormGroup, InputGroup, ControlLabel, FormControl, Glyphicon, Row, Col, Form, Checkbox } from 'react-bootstrap';
-import './Login.css'
+import { login } from './loginAction';
+
+import './login.css'
 
 class Login extends Component {
   constructor(props) {
@@ -13,53 +14,41 @@ class Login extends Component {
       password:''
     }
   }
-  static propTypes = {
-    match: PropTypes.object.isRequired,
-    location: PropTypes.object.isRequired,
-    history: PropTypes.object.isRequired
-  }
+
 
   onChange = (e) => {
-    let state = this.state
+    let state = this.state;
     let field = e.target.name;
     let value = e.target.value;
-    state[field] = value
-    console.log(field, value)
-    this.setState(state)
+    // setState takes an object. the {} creates a new object.
+    // Field is the property that you are changing.
+    // if you put "field : value", js will think that are are assigning a key property of field.
+    //[field] will give you the value of field which is what you would want.
+    this.setState({...state, [field]: value})
     console.log('state', this.state)
   }
 
   onClick = (e) => {
 
-    console.log(this.state.email, this.state.password)
-    //this.props.(this.state.text);
-    //this.props.user.setState()
-    // this.setState({
-    //   username: '',
-    //   password:''
-    // });
+   this.props.events(this.state, this.props.history);
   }
 
-  handleClick = (e) => {
-    this.props.history.push('/signup')
-  }
 
-  // Login.contextTypes = {
-  //   router: PropTypes.object.isRequired
-  // }
+
+
 
   render() {
-    const { match, location, history } = this.props
-    return (<div>
-
+    return (
+    <div>
       <Row className="show-grid">
-      <Col xs={6} md={4}></Col>
-      <Col xs={6} md={4} className="loginField">
-        <h2>Login</h2>
-        <h4>Share the knowledge.</h4>
-        <h4>Gain the knowledge.</h4>
-        <h4>Network with the best.</h4>
+      {/* Title header */}
+      <Col md={4} mdOffset={4} className="loginField">
+        <h1 id="login">Login</h1>
+          <h4>Share the knowledge.</h4>
+          <h4>Gain the knowledge.</h4>
+          <h4>Network with the best.</h4>
 
+        {/* Email Input */}
         <Form horizontal>
           <FormGroup controlId="formHorizontalEmail">
             <Col componentClass={ControlLabel} sm={2}>
@@ -67,49 +56,54 @@ class Login extends Component {
             </Col>
 
             <Col sm={10}>
-              <FormControl name="email" type="email"
-              placeholder="Email"
-              onChange={this.onChange}/>
+              <FormControl name="email"
+                           type="email"
+                           placeholder="Email"
+                           onChange={this.onChange}/>
             </Col>
           </FormGroup>
 
+          {/* Password Input */}
           <FormGroup controlId="formHorizontalPassword">
-            <Col componentClass={ControlLabel} sm={2}>
-              Password
-            </Col>
-            <Col sm={10}>
-              <FormControl name="password" type="password"
-              placeholder="password"
-              onChange={this.onChange}/>
-            </Col>
+              <Col componentClass={ControlLabel} sm={2}>
+                Password
+              </Col>
+              <Col sm={10}>
+                <FormControl name="password"
+                             type="password"
+                             placeholder="Password"
+                             onChange={this.onChange}/>
+              </Col>
           </FormGroup>
 
+          {/* Remember-Me Checkbox */}
           <FormGroup>
             <Col smOffset={2} sm={10}>
-              <Checkbox>Remember me</Checkbox>
+              <Checkbox id="rememberMe">Remember me</Checkbox>
             </Col>
           </FormGroup>
 
         </Form>
 
         <Row className="show-grid">
-
+        {/* Sign UP button */}
           <Col md={6} mdPush={6}>
                   <FormGroup>
                       <Col smOffset={2} sm={10}>
-                      <Button type="submit"
-                      onClick={this.handleClick}>
-                         Sign up
-                      </Button>
+                        <Button type="submit"
+                                onClick={this.onClick}>
+                           Sign up
+                        </Button>
                       </Col>
                     </FormGroup>
           </Col>
 
+          {/* Login button */}
           <Col md={6} mdPull={6}>
                     <FormGroup>
                       <Col smOffset={2} sm={10}>
                         <Button type="submit"
-                        onClick={this.onClick}>
+                                onClick={this.onClick}>
                            Login
                         </Button>
                       </Col>
@@ -120,10 +114,25 @@ class Login extends Component {
       </Col>
       <Col xs={6} md={4}></Col>
     </Row>
-    </div>
-  );
+  </div>
 
+    );
   }
 }
 
-export default withRouter(Login)
+// A higher order component is when you do a {connect}: a higher-order component is a function that takes a
+// component and returns a new component.
+const mapStateToProps = (state) => {
+    return state;
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+      events(state, history){
+        dispatch(login(state, history))
+      }
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps) (Login);

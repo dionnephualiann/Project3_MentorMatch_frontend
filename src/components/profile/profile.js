@@ -9,7 +9,6 @@ import './profile.css'
 export class Profile extends Component {
   constructor(props){
     super(props);
-
     this.state = {show: false};
 }
 
@@ -107,7 +106,6 @@ return (
   }
 
 // A higher order component is when you do a {connect}: a higher-order component is a function that takes a // component and returns a new component.
-
 const mapStateToProps = (state) => {
     return state.profile;
 }
