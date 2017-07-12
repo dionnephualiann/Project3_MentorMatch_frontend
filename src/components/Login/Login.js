@@ -42,20 +42,21 @@ class Login extends Component {
     <div>
       <Row className="show-grid">
       {/* Title header */}
-      <Col md={4} mdOffset={4} className="loginField">
+      <Col md={8} mdOffset={2} className="loginField">
         <h1 id="login">Login</h1>
-          <h4>Share the knowledge.</h4>
-          <h4>Gain the knowledge.</h4>
-          <h4>Network with the best.</h4>
+          <h4>Share the knowledge. Gain the knowledge. Network with the best.</h4>
+
 
         {/* Email Input */}
         <Form horizontal>
-          <FormGroup controlId="formHorizontalEmail">
-            <Col componentClass={ControlLabel} sm={2}>
+          <FormGroup controlId="formHorizontalEmail" className="email">
+            <Col componentClass={ControlLabel}
+                 md={1}
+                 className="emailLabel">
               Email
             </Col>
 
-            <Col sm={10}>
+            <Col md={8} mdOffset={1}>
               <FormControl name="email"
                            type="email"
                            placeholder="Email"
@@ -64,11 +65,13 @@ class Login extends Component {
           </FormGroup>
 
           {/* Password Input */}
-          <FormGroup controlId="formHorizontalPassword">
-              <Col componentClass={ControlLabel} sm={2}>
+          <FormGroup controlId="formHorizontalPassword" className="password">
+              <Col componentClass={ControlLabel}
+                   md={1}
+                   className="passwordLabel">
                 Password
               </Col>
-              <Col sm={10}>
+              <Col md={8} mdOffset={1}>
                 <FormControl name="password"
                              type="password"
                              placeholder="Password"
@@ -77,8 +80,8 @@ class Login extends Component {
           </FormGroup>
 
           {/* Remember-Me Checkbox */}
-          <FormGroup>
-            <Col smOffset={2} sm={10}>
+          <FormGroup className="checkbox">
+            <Col md={6}>
               <Checkbox id="rememberMe">Remember me</Checkbox>
             </Col>
           </FormGroup>
@@ -86,33 +89,34 @@ class Login extends Component {
         </Form>
 
         <Row className="show-grid">
+
         {/* Sign UP button */}
           <Col md={6} mdPush={6}>
                   <FormGroup>
-                      <Col smOffset={2} sm={10}>
-                        <Button type="submit"
+                        <Button bsStyle="warning"
+                                type="submit"
+                                className="signupButton"
                                 onClick={this.onClick}>
                            Sign up
                         </Button>
-                      </Col>
                     </FormGroup>
           </Col>
 
           {/* Login button */}
           <Col md={6} mdPull={6}>
                     <FormGroup>
-                      <Col smOffset={2} sm={10}>
-                        <Button type="submit"
+                        <Button bsStyle="success"
+                                type="submit"
+                                className="loginButton"
                                 onClick={this.onClick}>
                            Login
                         </Button>
-                      </Col>
                     </FormGroup>
           </Col>
         </Row>
 
       </Col>
-      <Col xs={6} md={4}></Col>
+
     </Row>
   </div>
 

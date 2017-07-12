@@ -7,7 +7,7 @@ import {HashRouter, Link} from 'react-router-dom';
 import {logout} from './components/login/logoutAction';
 import {connect} from 'react-redux';
 
-import { Button, Navbar, NavItem, Nav, Grid } from 'react-bootstrap';
+import { Button, Navbar, NavItem, Nav, Grid, Image } from 'react-bootstrap';
 import Main from './Routes';
 
 import navbarInstance from './components/navBar/navBar';
@@ -32,7 +32,7 @@ class App extends Component {
           <Navbar inverse collapseOnSelect>
             <Navbar.Header>
               <Navbar.Brand>
-                <img src="../images/logo3.png"/>
+                <img src="../images/logo3.png" id="logo"/>
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
@@ -50,9 +50,9 @@ class App extends Component {
         </div>
         <Grid>
         <Main>
-          To get started, edit <code>src/App.js</code> and save to reload.
         </Main>
         </Grid>
+
       </div>
 
     );

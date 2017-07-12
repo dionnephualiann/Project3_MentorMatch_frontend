@@ -39,9 +39,12 @@ export class SignUp extends Component {
 
 
   render() {
-    return (<div>
+    return (
+    <div className="signupBody">
 
     <Row className="show-grid">
+     <h1 id="signUpTitle">Sign Up</h1>
+        <p id="subtitle">Come Join the Network</p>
         <Col md={6} mdPush={6}>
         <FormGroup bsSize="large">
 
@@ -58,10 +61,10 @@ export class SignUp extends Component {
         </FormGroup>
 
 
-        <button type="button"
-                class="btn btn-primary"
+        <Button bsStyle="success"
+                className="signup"
                 onClick={this.onClick}>
-                Sign Up</button>
+                Sign Up</Button>
         </Col>
 
         <Col md={6} mdPull={6}>
