@@ -1,4 +1,4 @@
-const carsReducer = (state = [], action) => {
+const MentorLandingPageReducer = (state = [], action) => {
 
   console.log(action);
 
@@ -11,4 +11,4 @@ const carsReducer = (state = [], action) => {
 }
 
 
-export default carsReducer;
+export default MentorLandingPageReducer;

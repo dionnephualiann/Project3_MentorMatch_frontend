@@ -10,19 +10,6 @@ export default class MentorLandingPage extends React.Component {
       user: null
   }
 
-  componentDidUpdate() {
-    if(this.props.user !== ""){
-      axios.get('/api/'+this.props.user)
-        .then( (response) => {
-          this.setState({
-            user: response.data
-          });
-        })
-        .catch((error)=> {
-          console.log(error);
-        });
-    }
-  }
 
   render() {
     return (<div>
@@ -32,4 +19,5 @@ export default class MentorLandingPage extends React.Component {
 
 </div>);
   }
+}
 }
