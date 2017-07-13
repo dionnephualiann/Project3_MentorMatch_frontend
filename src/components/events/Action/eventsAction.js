@@ -3,7 +3,7 @@ import axios from 'axios';
 export const createPost = (text) => {
     //need to return another function
     return (dispatch) => {
-      axios.post('http://localhost:3001/api/events/' , {text})
+      axios.post('/api/events/' , {text})
       .then( (response) => {
         console.log("Post created", response);
         return dispatch({
@@ -18,7 +18,7 @@ export const createPost = (text) => {
 }
 
 
-export const fetchPosts = (text, history) => {
+export const fetchPosts = () => {
     //need to return another function
     return (dispatch) => {
       axios.get('/api/events/')

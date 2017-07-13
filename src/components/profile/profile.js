@@ -46,7 +46,7 @@ return (
         <Col sm={12} md={6}>
           <Image src={this.props.profile.url} circle />
             <Well bsSize="large" className="JobTitle">
-              <h1>{this.props.profile.name}</h1>
+              <h1>{this.props.profile.user.name}</h1>
               <h2>{this.props.profile.jobTitle}</h2>
               <Button bsStyle="info"
                       className="pull-right editTitle"

@@ -25,7 +25,6 @@ class Login extends Component {
     // if you put "field : value", js will think that are are assigning a key property of field.
     //[field] will give you the value of field which is what you would want.
     this.setState({...state, [field]: value})
-    console.log('state', this.state)
   }
 
   onClick = (e) => {
@@ -33,7 +32,10 @@ class Login extends Component {
    this.props.events(this.state, this.props.history);
   }
 
-
+  onSignup = (e) => {
+    //redirect to signup page
+    this.props.signup(this.props.history);
+  }
 
 
 
@@ -96,7 +98,7 @@ class Login extends Component {
                         <Button bsStyle="warning"
                                 type="submit"
                                 className="signupButton"
-                                onClick={this.onClick}>
+                                onClick={this.onSignup}>
                            Sign up
                         </Button>
                     </FormGroup>
@@ -134,6 +136,9 @@ const mapDispatchToProps = (dispatch) => {
     return {
       events(state, history){
         dispatch(login(state, history))
+      },
+      signup(history){
+        history.push("/signUp/");
       }
     }
 }
