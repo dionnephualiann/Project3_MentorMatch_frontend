@@ -1,0 +1,30 @@
+div.mentor {
+  background-color: gray;
+  border-radius: 15px;
+}
+
+div.mentor-panel.col-md-3 {
+  margin: 10px;
+  width: 300px;
+  height: auto;
+}
+
+
+h1.userName {
+  padding-top: 20px;
+  margin-top: 10px;
+  font-size: 25px;
+}
+
+h2.JobTitle {
+  font-size: 20px;
+  padding-bottom: 15px;
+}
+
+img.profileImage.img-circle {
+  margin: 0px;
+  padding: 10px;
+  width: 100%;
+  height: auto;
+  display: inline;
+}
