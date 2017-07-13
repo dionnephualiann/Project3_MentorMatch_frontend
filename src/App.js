@@ -32,7 +32,7 @@ class App extends Component {
           <Navbar inverse collapseOnSelect>
             <Navbar.Header>
               <Navbar.Brand>
-                <img src="../images/logo3.png" id="logo"/>
+                <Link to='/LandingPage'><Image src="../images/logo3.png" id="logo"/></Link>
               </Navbar.Brand>
               <Navbar.Toggle />
             </Navbar.Header>
@@ -40,7 +40,7 @@ class App extends Component {
               <Nav pullRight>
                 <NavItem eventKey={1}><Link to='/events'>Events</Link></NavItem>
                 <NavItem eventKey={2}><Link to='/profile/me'>Profile</Link></NavItem>
-                <NavItem eventKey={3} href="#">Mentor</NavItem>
+                <NavItem eventKey={3}><Link to='/mentorPage'>Mentor</Link></NavItem>
                 <NavItem eventKey={4} href="#">Mentee</NavItem>
                 <NavItem eventKey={5}><Link to='/logout'>Logout</Link></NavItem>
               </Nav>
