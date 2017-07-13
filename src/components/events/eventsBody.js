@@ -1,16 +1,17 @@
 // event body is an individual post
-import React, {PropTypes} from 'react';
+import React, { PropTypes} from 'react';
 import { Button, Row, Col, Panel, Grid } from 'react-bootstrap';
+
 
 import './eventsBody.css'
 
-
 const EventBody = (props) => (
-
   <div>
   <Col md={10} mdOffset={1} id="Body">
   <Panel header={props.title}>
-
+    <Row>
+      <h2>{props.postedBy.name}</h2>
+    </Row>
       <Row>
       <Col md={12}>
       {props.text}

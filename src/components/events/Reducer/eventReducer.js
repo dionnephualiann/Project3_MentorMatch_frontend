@@ -4,6 +4,7 @@ const events = (state=[], action) => {
       return [
         ...state,
         {
+          postedBy: action.post.user,
           text: action.post.text,
           date: action.post.date,
         }
